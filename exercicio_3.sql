@@ -1,0 +1,27 @@
+CREATE DATABASE exercicio_3;
+
+USE exercicio_3;
+
+CREATE TABLE estado(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	sigla VARCHAR(2),
+	nome VARCHAR(50)
+);
+
+CREATE TABLE cidade(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(50),
+	id_estado INT,
+	
+	FOREIGN KEY (id_estado) REFERENCES estado(id)
+);
+
+CREATE TABLE bairro(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(50),
+	id_cidade INT,
+	
+	FOREIGN KEY (id_cidade) REFERENCES cidade(id)
+);
+
+DROP DATABASE exercicio_3;
